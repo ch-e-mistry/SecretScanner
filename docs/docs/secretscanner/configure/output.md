@@ -13,13 +13,13 @@ By default, the output is written to `/home/deepfence/output` in the container f
 
 mkdir ./my-output
 
-docker run -it --rm --name=deepfence_secret_scanner \
+docker run -it  \
     -v /var/run/docker.sock:/var/run/docker.sock \
 # highlight-next-line
     -v $(pwd)/my-output:/home/deepfence/output \
     deepfenceio/deepfence_secret_scanner:latest --image-name node:latest \
 # highlight-next-line
-    --json-file node-secret-scan.json
+    --json-filename node-secret-scan.json
 ```
 
 You can also override the default output location (`--output-path`) in the container.
